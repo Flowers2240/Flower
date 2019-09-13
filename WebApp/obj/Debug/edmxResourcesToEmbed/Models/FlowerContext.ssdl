@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlowersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="Admin_id" />
+    </Key>
+    <Property Name="Admin_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Admin_UserName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Admin_Password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Admin_FN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Admin_LN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Admin_sex" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Admin_Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Admin_Phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_id" />
+    </Key>
+    <Property Name="Order_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Product_id" Type="varchar" MaxLength="15" />
+    <Property Name="User_id" Type="varchar" MaxLength="15" />
+    <Property Name="User_Address" Type="varchar" MaxLength="50" />
+    <Property Name="SumPrice" Type="float" />
+    <Property Name="Order_date" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Product_name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Product_image" Type="image" Nullable="false" />
+    <Property Name="Product_desciption" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Product_color" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Product_type" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Product_price" Type="float" Nullable="false" />
+    <Property Name="Product_amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatusProduct">
+    <Key>
+      <PropertyRef Name="Status_id" />
+    </Key>
+    <Property Name="Status_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Status_name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="Store_id" />
+    </Key>
+    <Property Name="Store_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Store_name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Emp_username" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Emp_password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Emp_FN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Emp_LN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Emp_sex" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Emp_address" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Emp_Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Emp_Phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="UserName" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="User_password" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="User_FN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="User_LN" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="User_Birth" Type="date" Nullable="false" />
+    <Property Name="User_sex" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="User_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="User_Phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FlowersModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusProduct" EntityType="Self.StatusProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
